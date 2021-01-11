@@ -16,7 +16,7 @@ RUN useradd -m -d ${USER_HOME_DIR} ${USER} \
 
 COPY . ${REPO_DIR}/
 
-RUN julia -e "using Pkg; Pkg.add([Pkg.PackageSpec(name=\"Pluto\", rev=\"9edb7b2\"), Pkg.PackageSpec(url=\"https://github.com/fonsp/PlutoBindServer.jl\", rev=\"7d0e747\")]); Pkg.instantiate(); Pkg.precompile();" \
+RUN julia -e "using Pkg; Pkg.add([Pkg.PackageSpec(name=\"Pluto\", rev=\"9edb7b2\"), Pkg.PackageSpec(url=\"https://github.com/fonsp/PlutoBindServer.jl\", rev=\"2695d66\")]); Pkg.instantiate(); Pkg.precompile();" \
     && chown -R ${USER} ${USER_HOME_DIR}
 USER ${USER}
 
