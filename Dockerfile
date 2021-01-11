@@ -9,7 +9,7 @@ ENV JULIA_NUM_THREADS 100
 RUN useradd -m -d ${USER_HOME_DIR} ${USER} \
     && mkdir -p ${NOTEBOOK_DIR}
 
-COPY startup.jl ${USER_HOME_DIR}/
+COPY bindserver.jl ${USER_HOME_DIR}/
 
 RUN julia -e "using Pkg; Pkg.add([Pkg.PackageSpec(name=\"Pluto\", rev=\"9edb7b2\"), Pkg.PackageSpec(url=\"https://github.com/fonsp/PlutoBindServer.jl\", rev=\"4e06d39\")]); Pkg.instantiate(); Pkg.precompile();" \
     && chown -R ${USER} ${USER_HOME_DIR}
