@@ -1,6 +1,6 @@
 import PlutoBindServer
 
-start_dir = "~"
+start_dir = "/home"
 
 notebookfiles = let
     jlfiles = vcat(map(walkdir(start_dir)) do (root, dirs, files)
