@@ -1,6 +1,8 @@
 import PlutoBindServer
 
-start_dir = "/home"
+@show pwd() readdir()
+
+start_dir = "."
 
 notebookfiles = let
     jlfiles = vcat(map(walkdir(start_dir)) do (root, dirs, files)
@@ -16,5 +18,7 @@ notebookfiles = let
         readline(f) == "### A Pluto.jl notebook ###"
     end
 end
+
+@show notebookfiles
 
 PlutoBindServer.run_paths(notebookfiles; port=3456, host="0.0.0.0")
